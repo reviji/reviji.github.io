@@ -1,42 +1,39 @@
-const btnLike1 = document.getElementById("btnLike1")
-const btnLike2 = document.getElementById("btnLike2")
-const countLikes1 = document.getElementById("countLikes1")
-const countLikes2 = document.getElementById("countLikes2")
+document.addEventListener("DOMContentLoaded", function() {
+    // Like button 1
+    let likeCount1 = 0;
+    document.getElementById("btnLike1").addEventListener("click", function() {
+        likeCount1++;
+        document.getElementById("countLike1").value = likeCount1;
+    });
 
-const btndisLike1 = document.getElementById("btndisLike1")
-const btndisLike2 = document.getElementById("btndisLike2")
-const countdisLikes1 = document.getElementById("countdisLikes1")
-const countdisLikes2 = document.getElementById("countdisLikes2")
+    // Dislike button 1
+    let dislikeCount1 = 0;
+    document.getElementById("btnDislike1").addEventListener("click", function() {
+        dislikeCount1++;
+        document.getElementById("countDislike1").value = dislikeCount1;
+    });
 
-function hitLikes1() {
-  let totalLikes1 = parseInt(countLikes1.value) + 1
-  countLikes1.textContent = totalLikes1.toString()
-}
-btnLike1.addEventListener("click",hitLikes1)
+    // Like button 2
+    let likeCount2 = 0;
+    document.getElementById("btnLike2").addEventListener("click", function() {
+        likeCount2++;
+        document.getElementById("countLike2").value = likeCount2;
+    });
 
-function hitLikes2() {
-  let totalLikes2 = parseInt(countLikes2.value) + 1
-  countLikes2.textContent = totalLikes2.toString()
-}
-btnLike2.addEventListener("click",hitLikes2)
+    // Dislike button 2
+    let dislikeCount2 = 0;
+    document.getElementById("btnDislike2").addEventListener("click", function() {
+        dislikeCount2++;
+        document.getElementById("countDislike2").value = dislikeCount2;
+    });
 
-function hitdisLikes1() {
-  let totaldisLikes1 = parseInt(countdisLikes1.value) + 1
-  countdisLikes1.textContent = totaldisLikes1.toString()
-}
-btndisLike1.addEventListener("click",hitdisLikes1)
-
-function hitdisLikes2() {
-  let totaldisLikes2 = parseInt(countdisLikes2.value) + 1
-  countdisLikes2.textContent = totaldisLikes2.toString()
-}
-btndisLike2.addEventListener("click",hitdisLikes2)
-
-const submit = document.getElementById("submit")
-const comment = document.getElementById("comment")
-const commentbox = document.getElementById("commentbox")
-function submitComment(){
-  commentbox.textContent +=comment.value.toString() + "\n"
-  comment.value="";
-}
-submit.addEventListener("click",submitComment)
+    // Comment section
+    document.getElementById("submit").addEventListener("click", function() {
+        const comment = document.getElementById("comment").value;
+        const commentBox = document.getElementById("commentbox");
+        if (comment.trim() !== "") {
+            commentBox.value += comment + "\n";
+            document.getElementById("comment").value = "";
+        }
+    });
+});
